@@ -80,7 +80,7 @@ def evaluate(model, loader, device):
 
 ### Train RNN
 def train_rnn(train_file, val_file, epochs=5, batch_size=32, lr=0.001, emb_dim=100, hidden_dim=128):
-    print("### 🚀 Starting RNN Training ###")
+    print("### Start RNN Training ###")
 
     train_data = SeqDataset(train_file, build_vocab=True)
     val_data = SeqDataset(val_file, vocab=train_data.vocab)
@@ -108,7 +108,7 @@ def train_rnn(train_file, val_file, epochs=5, batch_size=32, lr=0.001, emb_dim=1
         val_loss, val_acc = evaluate(model, val_loader, device)
         print(f"Epoch {epoch+1}: Train Loss={total_loss/len(train_data):.4f}, Val Loss={val_loss:.4f}, Val Acc={val_acc:.4f}")
 
-    print("✅ Training Complete! Model saved as rnn_model.pt")
+    print("Training Complete! Model saved as rnn_model.pt")
     torch.save(model.state_dict(), "rnn_model.pt")
 
 

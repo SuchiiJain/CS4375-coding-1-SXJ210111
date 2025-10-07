@@ -81,7 +81,7 @@ def evaluate(model, loader, device):
 
 ### Training Logic
 def train_ffnn(train_file, val_file, epochs=5, batch_size=32, lr=0.001, hidden_dim=128):
-    print("### 🚀 Starting FFNN Training ###")
+    print("### Start FFNN Training ###")
 
     # Load training and validation datasets
     train_data = ReviewDataset(train_file, build_vocab=True)
@@ -113,7 +113,7 @@ def train_ffnn(train_file, val_file, epochs=5, batch_size=32, lr=0.001, hidden_d
         val_loss, val_acc = evaluate(model, val_loader, device)
         print(f"Epoch {epoch+1}: Train Loss={total_loss/len(train_data):.4f}, Val Loss={val_loss:.4f}, Val Acc={val_acc:.4f}")
 
-    print("✅ Training Complete! Model saved as ffnn_model.pt")
+    print("Training Complete! Model saved as ffnn_model.pt")
     torch.save(model.state_dict(), "ffnn_model.pt")
 
 
